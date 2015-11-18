@@ -1,5 +1,5 @@
 def fizzbuzz(n)
   if n == 3
-   puts 'fizz'
+   return 'fizz'
   end
 end
