@@ -26,8 +26,8 @@ end
 describe '#docking a bike' do
   it 'raises an error when full' do
      bike = Bike.new
-     subject.dock(bike)
-     expect {DockingStation::MAXIMUM_CAPACITY.times do docking_station.dock(bike) end }.to raise_error 'Docking station has reached capacity'
+     20.times { subject.dock(bike) }
+     expect { docking_station.dock(bike) }.to raise_error 'Docking station has reached capacity'
   end
 
   it 'docks a bike' do
@@ -35,8 +35,6 @@ describe '#docking a bike' do
     expect(docking_station.dock(bike)).to eq [bike]
   end
 end
-
-
 
   it { is_expected.to respond_to(:dock).with(1).argument }
 
