@@ -1,4 +1,6 @@
 require_relative 'bike'
+require_relative 'garage'
+require_relative 'van'
 
 class DockingStation
 
@@ -23,11 +25,10 @@ class DockingStation
     @bikes << bike
   end
 
-  # def remove_broken_bikes
-  #     @broken_bikes = @bikes.select { |bike| bike.working? == false  }
-  #     remove_broken_bikes_from_dock
-  #     @broken_bikes
-  #   end
+  def remove_broken_bikes
+      @broken_bikes = @bikes.select { |bike| bike.working? == false  }
+      remove_broken_bikes_from_dock
+    end
 
 private
 
@@ -43,10 +44,9 @@ private
     end
   end
 
-
- #  def remove_broken_bikes_from_dock
- #   @bikes = @bikes.reject { |bike| bike.working? == false }
- # end
+  def remove_broken_bikes_from_dock
+   @bikes = @bikes.reject { |bike| bike.working? == false }
+ end
 
 
 end
