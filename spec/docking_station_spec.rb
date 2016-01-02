@@ -8,6 +8,10 @@ describe '#initializing docking station' do
   it 'allows user to set capacity when initializing docking station ' do
     expect(docking_station.capacity).to eq DockingStation::DEFAULT_CAPACITY
   end
+
+  it 'initilizes with a capacity of 20 if no new capacity is given' do
+    expect(docking_station.capacity).to eq 20
+  end
 end
 
 describe '#releasing a bike' do
