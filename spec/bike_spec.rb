@@ -8,4 +8,9 @@ describe Bike do
   expect(bike).to respond_to :working?
  end
 
+ it 'reports a bike as broken' do
+   bike.report_broken
+   expect(bike.working?).to eq false
+ end
+
 end
