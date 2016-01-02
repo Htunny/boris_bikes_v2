@@ -1,4 +1,5 @@
 require 'docking_station'
+require 'support/shared_examples_for_bike_container'
 
 describe DockingStation do
 
@@ -22,7 +23,7 @@ describe '#releasing a bike' do
   end
 
   it 'raises error if there are no bikes in docking station' do
-    expect{subject.release_bike}.to raise_error("There are no bikes available")
+    expect{subject.release_bike}.to raise_error("DockingStation empty")
   end
 
   it 'expects bike to be working' do
@@ -41,13 +42,13 @@ end
 describe '#docking a bike' do
   it 'raises an error when full' do
      docking_station.capacity.times do subject.dock(bike) end
-     expect { docking_station.dock(bike) }.to raise_error 'Docking station has reached capacity'
+     expect { docking_station.dock(bike) }.to raise_error 'DockingStation full'
   end
 
   it 'raises error when full with new default capacity' do
     docking_station = DockingStation.new(50)
     50.times { docking_station.dock(bike) }
-    expect{ docking_station.dock(bike) }.to raise_error 'Docking station has reached capacity'
+    expect{ docking_station.dock(bike) }.to raise_error 'DockingStation full'
   end
 
   it 'docks a bike' do
@@ -57,5 +58,5 @@ end
 
   it { is_expected.to respond_to(:dock).with(1).argument }
 
-
+it_behaves_like BikeContainer
 end

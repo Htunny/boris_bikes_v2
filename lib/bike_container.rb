@@ -8,7 +8,7 @@ module BikeContainer
     @bikes = []
   end
 
-  def add_bike(bike)
+  def dock(bike)
     raise "#{self.class.name} full" if full?
     bikes << bike
   end
@@ -21,7 +21,7 @@ module BikeContainer
     bikes.count >= capacity
   end
 
-  def remove_bike
+  def release_bike
   raise "#{self.class.name} empty" if empty?
   bikes.pop
 end
