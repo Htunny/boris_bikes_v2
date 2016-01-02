@@ -7,5 +7,5 @@ describe Bike do
   it 'responds to working?' do
   expect(bike).to respond_to :working?
  end
- 
+
 end
