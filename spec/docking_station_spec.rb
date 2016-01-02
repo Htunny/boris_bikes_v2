@@ -32,7 +32,7 @@ describe '#releasing a bike' do
   end
 
   it 'raises error if bike is broken' do
-    allow(bike).to receive(:working?).and_return false
+    bike = double(:bike, working?: false)
     docking_station.dock(bike)
     expect{docking_station.release_bike}.to raise_error("Bike is broken")
   end
